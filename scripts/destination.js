@@ -182,7 +182,7 @@ async function getHeroImage(searchTerm){
 
     const data = await response.json();
 
-    return data.results[0]?.urls?.regular;
+    return data.results[0]?.urls?.regular + "&fm=webp";
 };
 
 
@@ -292,7 +292,7 @@ async function loadGallery(){
         "beforeend",
             `
             <img
-                src="${photo.urls.regular}"
+                src="${photo.urls.small}&fm=webp"
                 alt="${destination.name}"
                 loading="lazy">
             `

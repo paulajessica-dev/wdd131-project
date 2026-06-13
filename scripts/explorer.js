@@ -1,3 +1,5 @@
+const accessKeyCountry = 'H8ECoGw34rXidUKIXhb1UircpLTw3RV7pNRYe747';
+
 
 const destinations = [
     {
@@ -158,35 +160,36 @@ async function getWeather(latitude, longitude) {
 };
 
 async function getCountryInfo(country) {
+
     try {
+
         const response = await fetch(
-            `https://restcountries.com/v3.1/name/${encodeURIComponent(country)}?fullText=true`
+            `https://api.api-ninjas.com/v1/country?name=${country}`,
+            {
+                headers: {
+                    "X-Api-Key": accessKeyCountry
+                }
+            }
         );
 
-        if (!response.ok) {
-            throw new Error("Country not found");
-        }
         const data = await response.json();
-        if (!data || !data.length) {
-            throw new Error("Empty response");
-        }
 
         return {
-            flag: data[0].flags?.png || "",
-            capital: data[0].capital?.[0] || "Unknown",
-            population: data[0].population
-                ? data[0].population.toLocaleString()
-                : "Unknown"
+            capital: data[0]?.capital || "Unknown",
+            population: data[0]?.population?.toLocaleString() || "Unknown"
         };
 
     } catch (error) {
-        console.error(`Country Error: ${country}`, error);
+
+        console.error(error);
+
         return {
-            flag: "",
             capital: "Unknown",
             population: "Unknown"
         };
+
     }
+
 };
 
 async function getLocalTime(timezone) {
@@ -238,8 +241,11 @@ async function getDestination(searchTerm,name,country,latitude, longitude, timez
         `https://api.unsplash.com/search/photos?query=${searchTerm}&per_page=1&client_id=${accessKey}`
     );
 
+   
+
     const data = await response.json();
-    const imageUrl = data.results[0].urls.regular || "images/default-beach.jpg";
+    const imageUrl = data.results[0].urls.small + "&fm=webp" || "images/default-beach.jpg";
+    //console.log(data.results[0].urls);
     const countryInfo = await getCountryInfo(country);
     const weatherInfo = await getWeather(latitude,longitude);
     const celsius = weatherInfo.temperature;
@@ -258,8 +264,7 @@ async function getDestination(searchTerm,name,country,latitude, longitude, timez
                 <a href="destination.html?destination=${encodeURIComponent(name)}"><img src="${imageUrl}" alt="${name}"></a>
                 <div class="card-content">
                     <h2>${name}</h2>
-                    <p>🌎 ${country}</p>
-                    <img id="flag" src="${countryInfo.flag}" alt="${country} loading="lazy" flag">
+                    <p>🌎 ${country}</p>                    
                     <p>🏛️ Capital: ${countryInfo.capital}</p>
                     <p>👥 Country Population: ${countryInfo.population}</p>
                     <p>🌡️ ${celsius}°C | ${fahrenheit}°F</p>
