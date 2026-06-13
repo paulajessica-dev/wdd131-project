@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wdd 131 - Temple Album Foreach Activity</title>
+    <meta name="description" content="Explore temples from around the world, including their location, dedication date, size, and images. Filter temples by age and area.">
+    <meta name="author" content="Paula Jessica Silva">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">        
+    <link rel="stylesheet" href="styles/explorer.css">
+    <script src="scripts/common.js" defer></script> 
+    <script src="scripts/destination.js" defer></script>
+</head>
+<body>
+    <header>
+        
+        <div class="top">
+            <div class="logo">
+                <img src="images/logotipe.png" alt="Paradise Explorer Logo">
+                <span>Paradise Explorer</span>
+            </div>      
+            <button type="button" id="menu" aria-label="Open navigation menu"></button>
+        </div>
+        <nav>
+            <ul class="navigation">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="explorer.html">Explore</a></li>
+            </ul>
+        </nav>     
+        <div class="stuff"></div>
+    </header>
+    <main>
+
+        <section id="destination-hero">
+            <img src="images/placeholder.webp" id="destination-image" alt="Image Selected">            
+            <div class="hero-overlay">
+                <h1 id="destination-name">Destination</h1>
+                <p id="country">Country</p>
+            </div>
+        </section>
+
+        <section class="destination-details">
+            <h1 class="visually-hidden">Welcome to Paradise Explorer</h1>
+        </section>
+
+        <section id="destination-gallery">
+            <h1>Photo Gallery</h1>
+            <div id="gallery-grid"></div>
+        </section>
+
+    </main>
+        <footer>
+         <p>
+            ©<span id="currentyear"></span>
+            🌺 Paula Jessica Silva 🌺
+            Fortaleza, Ceará
+        </p>
+        <p id="lastModified"></p>
+    </footer>
+   
+</body>
+</html>

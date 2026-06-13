@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wdd 131 - Final Project</title>
+    <meta name="description" content="Paradise Explorer helps travelers discover tropical destinations, beautiful beaches, weather information, and travel inspiration from around the world.">
+    <meta name="author" content="Paula Jessica Silva">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">    
+    <link rel="stylesheet" href="styles/home.css">
+    <script src="scripts/common.js" defer></script>
+</head>
+<body>
+    <header>
+        
+        <div class="top">
+            <div class="logo">
+                <img src="images/logotipe.png" alt="Paradise Explorer Logo">
+                <span>Paradise Explorer</span>
+            </div>      
+            <button type="button" id="menu" aria-label="Open navigation menu"></button>
+        </div>
+        <nav>
+            <ul class="navigation">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="explorer.html">Explore</a></li>
+            </ul>
+        </nav>     
+        <div class="stuff"></div>
+    </header>
+    <main>
+        
+        <section class="hero">
+            <h1 class="visually-hidden">Welcome to Paradise Explorer</h1>
+            <picture class="hero-image">
+                <source srcset="images/maldivas-large.webp" media="(min-width: 1000px)">
+                <source srcset="images/maldivas-medium.webp" media="(min-width: 550px)">
+                <img src="images/maldivas-small.webp" alt="Aerial view of Maldives Beach resort">
+            </picture>
+            <div class="hero-content">              
+                <p class="hero-text">Your Journey to Paradise Starts Here.</p>
+                <a href="explorer.html" class="btn">Start Exploring</a>
+            </div>
+            <div class="scroll-indicator">↓</div>
+            
+        </section>
+        <section class="home-content">
+                <h1 class="visually-hidden">Welcome to Paradise Explorer</h1>
+                <div class="purpose">
+                    <h2>Our Purpose</h2>
+                    <p>
+                        Paradise Explorer helps travelers discover tropical destinations
+                        around the world through real-time weather information, local
+                        details, destination galleries, and travel inspiration.
+                    </p>
+                    <p>
+                        Our mission is to inspire your next adventure and help you find
+                        your perfect paradise.
+                    </p>
+                </div>
+                <div class="suggestion">
+                    <h2>Suggest a Tropical Destination</h2>
+                    <p>
+                        Know a tropical paradise that should be featured on Paradise
+                        Explorer? Send us your suggestion!
+                    </p>
+                    <form id="suggestion-form" action="suggestions.html">
+                        <label for="destination-name">Destination Name</label> <input type="text" id="destination-name" name="destination-name" required>
+                        <label for="country"> Country </label> <input type="text" id="country" name="country" required> 
+                        <label for="comments"> Why should we add it? </label> <textarea id="comments" name="comments" rows="4"></textarea>
+                        <button class="btn" type="submit"> Submit Suggestion</button>
+                    </form>
+                </div>            
+        </section>
+                
+    </main>
+        <footer>
+         <p>
+            ©<span id="currentyear"></span>
+            🌺 Paula Jessica Silva 🌺
+            Fortaleza, Ceará
+        </p>
+        <p id="lastModified"></p>
+    </footer>
+   
+</body>
+</html>
